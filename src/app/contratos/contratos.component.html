@@ -1,0 +1,45 @@
+<div>
+    <h2>Contratos</h2>
+
+    <div>
+      <form (ngSubmit)="agregarContrato()">
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          [(ngModel)]="nuevoContrato.nombre"
+          name="nombre"
+          placeholder="Nombre del contrato"
+          required
+        />
+  
+        <label for="descripcion">Descripción:</label>
+        <input
+          type="text"
+          id="descripcion"
+          [(ngModel)]="nuevoContrato.descripcion"
+          name="descripcion"
+          placeholder="Descripción del contrato"
+          required
+        />
+  
+        <button type="submit">Agregar Contrato</button>
+      </form>
+    </div>
+  
+
+    <div *ngIf="contratos.length > 0">
+      <h3>Lista de Contratos</h3>
+      <ul>
+        <li *ngFor="let contrato of contratos">
+          <strong>{{ contrato.nombre }}</strong> - {{ contrato.descripcion }}
+        </li>
+      </ul>
+    </div>
+  
+
+    <div *ngIf="contratos.length === 0">
+      <p>No hay contratos disponibles.</p>
+    </div>
+  </div>
+  
